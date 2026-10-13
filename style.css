@@ -1,0 +1,84 @@
+/* Daily Kharcha website. Colours from src/constants/theme.ts ("original" and "originalDark"). */
+:root {
+  --bg: #f2f6f5;
+  --surface: #ffffff;
+  --ink: #11292b;
+  --muted: #587073;
+  --line: #d6e1df;
+  --accent: #0e5a55;
+  --soft: #dcebe8;
+  --hero1: #0e5a55;
+  --hero2: #1c8c80;
+  --hero-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1819;
+    --surface: #132425;
+    --ink: #e5efed;
+    --muted: #93aaa8;
+    --line: #243b3c;
+    --accent: #46c2b5;
+    --soft: #1b3637;
+    --hero1: #1b3637;
+    --hero2: #23706a;
+    --hero-ink: #e5efed;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+h1, h2, .brand { font-family: "Bricolage Grotesque", system-ui, sans-serif; line-height: 1.2; }
+a { color: var(--accent); }
+
+header {
+  background: linear-gradient(135deg, var(--hero1), var(--hero2));
+  color: var(--hero-ink);
+  padding: 28px 16px 32px;
+}
+header .wrap { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px; background: #fff; color: #0e5a55;
+  display: grid; place-items: center; font: 700 26px "Bricolage Grotesque", sans-serif; flex: none;
+}
+.brand { font-size: 22px; font-weight: 700; color: var(--hero-ink); text-decoration: none; }
+header p { margin: 4px 0 0; opacity: 0.85; font-size: 14px; }
+
+.wrap { max-width: 760px; margin: 0 auto; }
+main { padding: 8px 16px 48px; }
+h1 { font-size: 30px; margin: 28px 0 4px; }
+h2 { font-size: 20px; margin: 32px 0 8px; }
+.updated { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 16px 0;
+}
+.card.soft { background: var(--soft); border-color: transparent; }
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+.table-scroll { overflow-x: auto; }
+
+.big-tick { font-size: 56px; line-height: 1; margin: 32px 0 0; }
+.button {
+  display: inline-block; background: var(--accent); color: var(--bg); text-decoration: none;
+  padding: 12px 20px; border-radius: 12px; font-weight: 600; margin-top: 12px;
+}
+
+footer { color: var(--muted); font-size: 14px; padding: 0 16px 40px; }
+footer a { margin-right: 16px; }

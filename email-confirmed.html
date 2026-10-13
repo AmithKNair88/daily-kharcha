@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email Confirmed · Daily Kharcha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo">₹</div>
+      <div>
+        <a class="brand" href="./">Daily Kharcha</a>
+        <p>Your money. Your data. Nobody else's.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Supabase sends people here after they click the link in the confirmation email.
+         If the link was too old or already used, Supabase adds "error" to the address: show that instead. -->
+    <div id="ok">
+      <p class="big-tick">✓</p>
+      <h1>Your email is confirmed</h1>
+      <p>Go back to the <strong>Daily Kharcha</strong> app and log in with your email and password.</p>
+      <a class="button" href="dailykharcha://">Open Daily Kharcha</a>
+    </div>
+    <div id="failed" hidden>
+      <p class="big-tick">⚠</p>
+      <h1>This link didn't work</h1>
+      <p>It may be too old or already used. Open the app and try logging in. If it says your email isn't confirmed,
+        sign up again to get a new email.</p>
+      <a class="button" href="dailykharcha://">Open Daily Kharcha</a>
+    </div>
+  </main>
+
+  <script>
+    var where = location.hash + location.search;
+    if (/error/.test(where)) {
+      document.getElementById("ok").hidden = true;
+      document.getElementById("failed").hidden = false;
+    }
+    // The address may carry a one-time login code. This page doesn't use it, so remove it from the address bar.
+    if (location.hash) history.replaceState(null, "", location.pathname);
+  </script>
+</body>
+</html>
