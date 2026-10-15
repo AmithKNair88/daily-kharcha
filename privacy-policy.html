@@ -22,7 +22,7 @@
 
   <main class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 14 October 2026</p>
+    <p class="updated">Last updated: 16 October 2026</p>
 
     <div class="card soft">
       <strong>In short:</strong> your expenses, income, budgets, cards and EMIs are stored <strong>only on your phone</strong>.
@@ -62,10 +62,11 @@
         <tr><th>What</th><th>Why</th></tr>
         <tr><td>Your email address and an encrypted password (or, with Google sign-in, your Google name, email and profile photo link)</td><td>So you can log in</td></tr>
         <tr><td>When your account was created, and the day you started your own budget</td><td>To count your 30-day free trial, so reinstalling doesn't reset it</td></tr>
-        <tr><td>Which family you own or belong to, and when you joined</td><td>Family sharing</td></tr>
+        <tr><td>Which family you own or belong to, and when you joined. Members' names, <strong>end-to-end encrypted</strong> for the owner</td><td>Family sharing</td></tr>
         <tr><td>Expenses family members send you, <strong>end-to-end encrypted</strong></td><td>Delivered to the family owner. Deleted from the server as soon as the owner's phone collects them</td></tr>
         <tr><td>The owner's card list (nickname, last 4 digits, bank, network), <strong>end-to-end encrypted</strong></td><td>So members can choose the owner's card when adding an expense</td></tr>
         <tr><td>Short family invite codes, <strong>encrypted</strong></td><td>Joining a family. They expire after 7 days</td></tr>
+        <tr><td>Only if the owner turns on "Can view my budget" for a member: a copy of the owner's budget (income, expenses, budgets, cards with nickname and last 4 digits, EMIs), <strong>end-to-end encrypted</strong> for the members allowed to view it, and each member phone's public key</td><td>Read-only budget sharing within the family. Deleted when no member is allowed to view any more, or with the family</td></tr>
       </table>
     </div>
     <p>
@@ -94,7 +95,14 @@
 
     <h2>5. Backups and exports</h2>
     <p>
-      Nothing is backed up automatically. If you make a backup in <em>Settings › Backup &amp; export</em>, it is locked with a password
+      <strong>Google Drive auto-backup</strong> is off unless you turn it on. When on, once a day the app saves a backup file,
+      locked with a password you set, to a folder called "Daily Kharcha backups" in <em>your own</em> Google Drive. It uses
+      Google's "drive.file" permission, so the app can only see the files it saved there, nothing else in your Drive. Google can't
+      open the file and we never receive it. The password is kept in your phone's secure storage so backups can run by themselves.
+      Turning it off stops new backups; files already in your Drive stay until you delete them.
+    </p>
+    <p>
+      Otherwise nothing is backed up automatically. If you make a backup in <em>Settings › Backup &amp; export</em>, it is locked with a password
       only you know and saved wherever you choose (for example Google Drive or WhatsApp). We never receive it and can't open it or
       reset its password. Spreadsheet (CSV) exports are <strong>not</strong> locked, so share them carefully.
     </p>
@@ -102,7 +110,7 @@
     <h2>6. Who else is involved</h2>
     <ul>
       <li><strong>Supabase</strong>: login and family-sharing server (section 2).</li>
-      <li><strong>Google</strong>: Google sign-in (if you choose it) and Google Play billing.</li>
+      <li><strong>Google</strong>: Google sign-in (if you choose it), Google Play billing, and Google Drive (only if you turn on Drive backup; the files are locked).</li>
       <li><strong>RevenueCat</strong>: checks subscription status (section 3).</li>
     </ul>
     <p>Each follows its own privacy policy. We share nothing else with anyone, unless the law requires it.</p>
