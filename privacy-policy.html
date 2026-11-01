@@ -43,12 +43,17 @@
       <li>Your income sources, budgets and spending limits.</li>
       <li>Your credit cards: <strong>only a nickname, the last 4 digits</strong>, bank, network, statement and due day and colour.
         We never ask for or store the full card number, expiry date or CVV.</li>
-      <li>Your EMIs, and which card bills you marked as paid.</li>
+      <li>Your EMIs, which card bills you marked as paid, the figures you type from your card statements (final amount, minimum due) and the card payments you record (amount, date and, if you type it, where you paid from).</li>
+          <li>Your own categories, and for shared expenses the names you type for people who owe you and whether they have paid you back. These are never sent to family members.</li>
       <li>Your app settings: theme, layout, app lock, reminders.</li>
     </ul>
     <p>
-      <strong>Bank SMS you paste:</strong> if you paste a bank SMS into "Add expense", the app reads it on your phone to fill in the form,
-      then throws the text away. It is never saved or sent. The app does <strong>not</strong> read your SMS inbox.
+      <strong>Bank SMS you paste or share:</strong> if you paste a bank SMS into "Add expense", or share it to Daily Kharcha from your
+      SMS app, the app reads it on your phone to fill in the form, then throws the text away. It is never saved or sent.
+      The app does <strong>not</strong> read your SMS inbox.
+    </p>
+    <p>
+      <strong>Home-screen widgets:</strong> the spend barometer widgets show only the percent of your budget used, never an amount.
     </p>
     <p>
       <strong>Reminders</strong> are scheduled by your phone itself. No push server is involved.
@@ -64,7 +69,7 @@
         <tr><td>When your account was created, and the day you started your own budget</td><td>To count your 30-day free trial, so reinstalling doesn't reset it</td></tr>
         <tr><td>Which family you own or belong to, and when you joined. Members' names, <strong>end-to-end encrypted</strong> for the owner</td><td>Family sharing</td></tr>
         <tr><td>Expenses family members send you, <strong>end-to-end encrypted</strong></td><td>Delivered to the family owner. Deleted from the server as soon as the owner's phone collects them</td></tr>
-        <tr><td>The owner's card list (nickname, last 4 digits, bank, network), <strong>end-to-end encrypted</strong></td><td>So members can choose the owner's card when adding an expense</td></tr>
+        <tr><td>The owner's card list (nickname, last 4 digits, bank, network) and the names of the owner's own categories, <strong>end-to-end encrypted</strong></td><td>So members can choose the owner's card and category when adding an expense</td></tr>
         <tr><td>Short family invite codes, <strong>encrypted</strong></td><td>Joining a family. They expire after 7 days</td></tr>
         <tr><td>Only if the owner turns on "Can view my budget" for a member: a copy of the owner's budget (income, expenses, budgets, cards with nickname and last 4 digits, EMIs), <strong>end-to-end encrypted</strong> for the members allowed to view it, and each member phone's public key</td><td>Read-only budget sharing within the family. Deleted when no member is allowed to view any more, or with the family</td></tr>
         <tr><td>Only if you use <em>Settings › Send feedback</em>: what you typed (type, title, details, where in the app, how bad), your name and the app version. <strong>Not</strong> encrypted, and never your expenses</td><td>So we can fix bugs and improve the app. The app can't read it back. We move it to a private to-do list, then delete it from our server (see section 6)</td></tr>
@@ -113,6 +118,7 @@
       <li><strong>Supabase</strong>: login and family-sharing server (section 2).</li>
       <li><strong>Google</strong>: Google sign-in (if you choose it), Google Play billing, and Google Drive (only if you turn on Drive backup; the files are locked).</li>
       <li><strong>RevenueCat</strong>: checks subscription status (section 3).</li>
+          <li><strong>Exchange rates (jsDelivr / currency-api)</strong>: only when an expense is in another currency, the app downloads that day's public rate file for that currency. It asks only for a currency and a date: no amount, no account, nothing about you.</li>
       <li><strong>Anthropic</strong>: feedback you send is kept in a private to-do list on Anthropic's Claude service, where
         Claude (an AI assistant) helps the developer build the fixes. It receives only the feedback, your name and the app version,
         never your expenses. See <a href="https://www.anthropic.com/legal/privacy">Anthropic's privacy policy</a>.</li>
